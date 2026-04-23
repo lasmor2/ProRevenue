@@ -1,5 +1,8 @@
 # ProRevenue
 
+![Homepage Overview](./public/homepage.png)
+![Affiliate Program](./public/affiliate.png)
+
 ProRevenue is a modern, premium revenue-generation platform built with Next.js 15, TypeScript, and React. It consolidates multiple monetization strategies—such as affiliate marketing, e-commerce, ad placements, and premium content—into a single, highly optimized web application.
 
 ## 🚀 Features
