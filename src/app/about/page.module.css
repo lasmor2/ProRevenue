@@ -1,0 +1,139 @@
+.hero {
+  position: relative;
+  padding: 6rem 0 5rem;
+  background: var(--gradient-hero);
+  overflow: hidden;
+}
+.glow1 {
+  position: absolute; width: 500px; height: 500px;
+  border-radius: 50%; filter: blur(80px);
+  background: rgba(124,58,237,0.22);
+  top: -80px; left: -80px; pointer-events: none;
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+.glow2 {
+  position: absolute; width: 350px; height: 350px;
+  border-radius: 50%; filter: blur(80px);
+  background: rgba(6,182,212,0.15);
+  bottom: -60px; right: -60px; pointer-events: none;
+  animation: pulse-glow 5s ease-in-out infinite 1.5s;
+}
+
+/* Mission */
+.missionGrid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: center;
+}
+.missionStats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.missionStat {
+  display: flex; flex-direction: column; align-items: center;
+  justify-content: center; gap: 0.4rem; text-align: center;
+  padding: 1.75rem 1rem;
+}
+
+/* Values */
+.valuesGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.valueCard { text-align: center; }
+.valueIcon {
+  font-size: 2.5rem; margin-bottom: 1rem;
+  display: block;
+}
+
+/* Timeline */
+.timeline {
+  display: flex; flex-direction: column; gap: 0;
+  max-width: 700px; margin: 0 auto;
+  position: relative;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%; top: 0; bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-cyan));
+  transform: translateX(-50%);
+}
+.timelineItem {
+  display: flex; justify-content: flex-end;
+  padding-right: calc(50% + 2rem);
+  padding-bottom: 2rem;
+  position: relative;
+}
+.timelineRight {
+  justify-content: flex-start;
+  padding-right: 0;
+  padding-left: calc(50% + 2rem);
+}
+.timelineCard { max-width: 280px; }
+.timelineDot {
+  position: absolute;
+  left: 50%; top: 1.25rem;
+  transform: translateX(-50%);
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--gradient-primary);
+  box-shadow: 0 0 12px var(--color-primary-glow);
+  z-index: 1;
+}
+
+/* Team */
+.teamGrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+.teamCard { text-align: center; }
+.teamAvatar {
+  font-size: 3rem; margin-bottom: 0.75rem;
+  display: block;
+}
+
+/* Contact */
+.contactBox {
+  position: relative; text-align: center;
+  background: linear-gradient(135deg, rgba(124,58,237,0.1), rgba(6,182,212,0.06));
+  border: 1px solid rgba(124,58,237,0.2);
+  border-radius: var(--radius-xl);
+  padding: 4rem 2rem;
+  overflow: hidden;
+}
+.contactGlow {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%,-50%);
+  width: 500px; height: 250px;
+  background: radial-gradient(ellipse, rgba(124,58,237,0.15), transparent 70%);
+  pointer-events: none;
+}
+.contactForm {
+  display: flex; flex-direction: column;
+  gap: 1rem; max-width: 600px; margin: 0 auto;
+  position: relative;
+}
+.formRow { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.formInput, .formTextarea {
+  padding: 0.875rem 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-border);
+  background: rgba(255,255,255,0.04);
+  color: var(--color-text-primary);
+  font-size: 0.9rem;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  transition: border-color var(--transition-base);
+  resize: vertical;
+}
+.formInput:focus, .formTextarea:focus { border-color: var(--color-primary); }
+.formInput::placeholder, .formTextarea::placeholder { color: var(--color-text-muted); }
+
+@media (max-width: 1024px) {
+  .missionGrid { grid-template-columns: 1fr; gap: 3rem; }
+  .valuesGrid { grid-template-columns: repeat(2, 1fr); }
+  .teamGrid { grid-template-columns: repeat(2, 1fr); }
+  .timeline::before { left: 20px; transform: none; }
+  .timelineItem, .timelineRight {
+    justify-content: flex-start;
+    padding-left: 3.5rem; padding-right: 0;
+  }
+  .timelineDot { left: 20px; transform: translateX(-50%); }
+}
+@media (max-width: 600px) {
+  .valuesGrid { grid-template-columns: 1fr; }
+  .teamGrid { grid-template-columns: 1fr; }
+  .formRow { grid-template-columns: 1fr; }
+}
